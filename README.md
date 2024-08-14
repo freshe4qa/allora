@@ -60,52 +60,9 @@ Explorer:
 
 Далее потребуется вписать сид фразу от кошелька
 
-![image](https://github.com/user-attachments/assets/778d5c64-9e91-486d-8136-541778924e5e)
-
-После нам выдадут HEAD-ID — копируем и вставляем
-
-Еще раз сид фразу и в последнем поле вписываем 1
-
-![image](https://github.com/user-attachments/assets/87f94d78-8c52-4193-9bd8-d7e0231aae57)
-
-Далее нам потребуется именно этот контейнер для проверки логов:
-
-![image](https://github.com/user-attachments/assets/756d823c-a2f0-4bb1-a07b-878a565df8e7)
-
-``docker logs -f ВАШ_COINTERID``
-
-После этого выполняем данный [квест](https://app.galxe.com/quest/AlloraNetwork/GCps2tzW3B)
+![Termius_64Q1scpZDz](https://github.com/user-attachments/assets/f1eff0a4-13ab-4a39-8e55-2d19217a7ffd)
 
 Полезные команды:
-
-Статус ноды:
-
-``curl --location 'http://localhost:6000/api/v1/functions/execute' \
---header 'Content-Type: application/json' \
---data '{
-    "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",
-    "method": "allora-inference-function.wasm",
-    "parameters": null,
-    "topic": "1",
-    "config": {
-        "env_vars": [
-            {
-                "name": "BLS_REQUEST_PATH",
-                "value": "/api"
-            },
-            {
-                "name": "ALLORA_ARG_PARAMS",
-                "value": "ETH"
-            }
-        ],
-        "number_of_nodes": -1,
-        "timeout": 2
-    }
-}'``
-
-Проверка обновления:
-
-``curl http://localhost:8000/update``
 
 Вывод ноды:
 
