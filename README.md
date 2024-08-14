@@ -32,7 +32,7 @@ Explorer:
 
 ``sudo apt update & sudo apt upgrade -y``
 
-``sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make``
+``sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make -y``
 
 Добавляем сеть Allora-Testnet через [сайт](https://explorer.testnet.allora.network/wallet/keplr?chain=testnet).
 
