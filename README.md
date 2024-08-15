@@ -46,7 +46,7 @@ Explorer:
 
 ![image](https://github.com/user-attachments/assets/2d003f90-643d-4898-b506-d3c47d3ae31c)
 
-Отправляемся к [крану](https://faucet.testnet.allora.network) и запрашиваем тестовые токены $uAllo
+Отправляемся к [крану](https://faucet.testnet-1.testnet.allora.network/) и запрашиваем тестовые токены $uAllo
 
 ![image](https://github.com/user-attachments/assets/228eb133-a922-4b7c-87f2-1c6348af0829)
 
