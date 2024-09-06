@@ -138,7 +138,7 @@ CG_API_KEY=
 
 В этом поле вписываем свою фразу кошелька "addressRestoreMnemonic"
 
-
+Сохраняем CTRL + O, CTRL + X
 
 ``git clone https://github.com/allora-network/allora-offchain-node``
 
