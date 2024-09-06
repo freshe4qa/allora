@@ -32,7 +32,7 @@ Explorer:
 
 ``sudo apt update & sudo apt upgrade -y``
 
-``sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make -y``
+``sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make jq -y``
 
 Добавляем сеть Allora-Testnet через [сайт](https://explorer.testnet.allora.network/wallet/keplr?chain=testnet).
 
@@ -52,15 +52,112 @@ Explorer:
 
 Продолжаем установку ноды:
 
-``rm -rf allora.sh allora-chain/ basic-coin-prediction-node/``
+``sudo apt install apt-transport-https ca-certificates curl software-properties-common -y``
 
-``wget https://raw.githubusercontent.com/dxzenith/allora-worker-node/main/allora.sh && chmod +x allora.sh && ./allora.sh``
+``curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -``
 
-![image](https://github.com/user-attachments/assets/277c6707-7074-4c56-8ad8-98c3e5a9207c)
+``sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"``
 
-Далее потребуется вписать сид фразу от кошелька
+``sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y``
 
-![Termius_64Q1scpZDz](https://github.com/user-attachments/assets/f1eff0a4-13ab-4a39-8e55-2d19217a7ffd)
+``sudo apt install apt-transport-https ca-certificates curl software-properties-common -y``
+
+``apt install docker-compose -y``
+
+``sudo rm -rf /usr/local/go``
+
+``curl -L https://go.dev/dl/go1.21.6.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local``
+
+``echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile``
+
+``source .bash_profile``
+
+``git clone https://github.com/allora-network/basic-coin-prediction-node``
+
+``cd basic-coin-prediction-node``
+
+``cp .env.example .env``
+
+``nano .env``
+
+Заполняем данные:
+
+TOKEN=ETH
+TRAINING_DAYS=30
+TIMEFRAME=4h
+MODEL=SVR
+REGION=US
+DATA_PROVIDER=binance
+CG_API_KEY=
+
+Сохраняем CTRL + O, CTRL + X
+
+``cp config.example.json config.json``
+
+``nano config.json``
+
+Заполняем данные:
+
+![Termius_GosdgAOSui](https://github.com/user-attachments/assets/d9cb6362-cdf8-4508-9cea-afa11251382f)
+
+Пример:
+
+{
+  "wallet": {
+    "addressKeyName": "test",
+    "addressRestoreMnemonic": "staff worry museum egg goddess expect dolphin merit come space combine alpha zero holiday solution >    "alloraHomeDir": "",
+    "gas": "1000000",
+    "gasAdjustment": 1.0,
+    "nodeRpc": "https://sentries-rpc.testnet-1.testnet.allora.network/",
+    "maxRetries": 1,
+    "delay": 1,
+    "submitTx": true
+  },
+"worker": [
+      {
+        "topicId": 1,
+        "inferenceEntrypointName": "api-worker-reputer",
+        "loopSeconds": 5,
+        "parameters": {
+          "InferenceEndpoint": "http://localhost:8000/inference/{Token}",
+          "Token": "ETH"
+        }
+      },
+      // worker providing inferences for topic ID 2
+      {
+        "topicId": 2, 
+        "inferenceEntrypointName": "api-worker-reputer",
+        "loopSeconds": 5,
+        "parameters": {
+          "InferenceEndpoint": "http://localhost:8000/inference/{Token}", // the specific endpoint providing inferences
+          "Token": "ETH" // The token specified in the endpoint
+        }
+      }
+    ] 
+  }
+
+В этом поле вписываем свою фразу кошелька "addressRestoreMnemonic"
+
+
+
+``git clone https://github.com/allora-network/allora-offchain-node``
+
+``cd allora-offchain-node``
+
+``cp config.example.json config.json``
+
+``nano config.json``
+
+В этом поле вписываем свою фразу кошелька "addressRestoreMnemonic"
+
+Сохраняем CTRL + O, CTRL + X
+
+``chmod +x init.config ./init.config``
+
+``docker compose build``
+
+``docker compose build``
+
 
 Полезные команды:
 
@@ -71,12 +168,3 @@ Explorer:
 Удалить ноду:
 
 ``rm -rf allora.sh allora-chain/ basic-coin-prediction-node/``
-
-
-
-
-
-
-
-
-
