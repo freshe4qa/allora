@@ -2,7 +2,7 @@
   <img height="100" height="auto" src="https://github.com/user-attachments/assets/762e2a94-92e0-4063-874b-dea77488f474">
 </p>
 
-# Allora Testnet — allora-testnet-1
+# Allora Testnet — allora-testnet-2
 
 Official documentation:
 >- [Validator setup instructions](https://docs.allora.network/)
